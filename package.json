@@ -1,17 +1,25 @@
 {
     "name": "2o3t-cli",
-    "version": "0.0.1",
+    "version": "0.0.8",
     "description": " CLI for 2O3T Projects including Web Application, UI Library, Server and etc.",
     "bin": {
         "2o3t": "bin/2o3t.js"
     },
+    "files": [
+        "bin/**/*",
+        "libs/**/*"
+    ],
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "",
     "license": "ISC",
-    "devDependencies": {
-        "eslint-config-2o3t": "^1.1.1",
+    "dependencies": {
+        "chalk": "^2.4.1",
+        "commander": "^2.19.0",
         "shelljs": "^0.8.2"
+    },
+    "devDependencies": {
+        "eslint-config-2o3t": "^1.1.1"
     }
 }

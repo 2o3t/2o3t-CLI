@@ -25,29 +25,31 @@ if (!projectType) {
     process.exit(1);
 }
 
-console.log(projectType, projectName);
+console.info(chalk.green(`Project Type: ${projectType}`));
+console.info(chalk.green(`Project Name: ${projectName}`));
 
+const timetemp = Date.now();
+const distName = `template_${timetemp}`;
 const URL = 'https://github.com/2o3t/2o3t-Templates.git';
-shell.exec(`git clone -b master --depth 1 ${URL}`);
+shell.exec(`git clone -b master --depth 1 ${URL} ${distName} --progress`);
 
-if (!shell.ls('2o3t-Templates').includes(projectType)) {
-    shell.rm('-rf', '2o3t-Templates');
+if (!shell.ls(distName).includes(projectType)) {
+    shell.rm('-rf', distName);
     console.error(chalk.red('[ERROR] Unknown project type!'));
     process.exit(1);
 }
 
-shell.mv('2o3t-Templates/' + projectType, './' + projectName);
-shell.rm('-rf', '2o3t-Templates');
+shell.mv(distName + '/' + projectType, './' + projectName);
+shell.rm('-rf', distName);
 
 
-// TODO <!-- ##&PROJECT_NAME&## --> 需要替换
+// <!-- ##&PROJECT_NAME&## --> 需要替换
 
 const fs = require('fs');
 const path = require('path');
 
-const ROOT = path.join(process.cwd(), './library');
-
 const LIB_NAME = projectName;
+const ROOT = path.join(process.cwd(), LIB_NAME);
 
 // <!-- ##&PROJECT_NAME&## -->
 
@@ -64,6 +66,13 @@ paths.forEach(p => {
         process.exit(1);
     }
     const itemPText = fs.readFileSync(itemP).toString();
-    const newItemPText = itemPText.replace(/<!-- ##&PROJECT_NAME&## -->/igm, LIB_NAME);
+    let name = LIB_NAME;
+    if (p.endsWith('package.json')) {
+        name = LIB_NAME.toLowerCase();
+    }
+    const newItemPText = itemPText.replace(/<!-- ##&PROJECT_NAME&## -->/igm, name);
     fs.writeFileSync(itemP, newItemPText);
 });
+
+// cd LIB_NAME && yarn
+console.info(chalk.yellowBright(`\n\ncd ${LIB_NAME} && yarn\n\n`));
