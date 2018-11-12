@@ -76,3 +76,7 @@ paths.forEach(p => {
 
 // cd LIB_NAME && yarn
 console.info(chalk.yellow(`\n\ncd ${LIB_NAME} && yarn\n\n`));
+
+if (projectType === 'library') {
+    console.info(chalk.yellow('\nnpm run build:libs\n\n'));
+}
