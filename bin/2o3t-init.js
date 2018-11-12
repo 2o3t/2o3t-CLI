@@ -29,7 +29,7 @@ console.info(chalk.green(`Project Type: ${projectType}`));
 console.info(chalk.green(`Project Name: ${projectName}`));
 
 const timetemp = Date.now();
-const distName = `template_${timetemp}`;
+const distName = `${projectType}_template_${timetemp}`;
 const URL = 'https://github.com/2o3t/2o3t-Templates.git';
 shell.exec(`git clone -b master --depth 1 ${URL} ${distName} --progress`);
 
@@ -75,4 +75,4 @@ paths.forEach(p => {
 });
 
 // cd LIB_NAME && yarn
-console.info(chalk.yellowBright(`\n\ncd ${LIB_NAME} && yarn\n\n`));
+console.info(chalk.yellow(`\n\ncd ${LIB_NAME} && yarn\n\n`));
