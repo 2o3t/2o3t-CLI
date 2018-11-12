@@ -28,7 +28,7 @@ if (!projectType) {
 console.info(chalk.green(`Project Type: ${projectType}`));
 console.info(chalk.green(`Project Name: ${projectName}`));
 
-const timetemp = Date.now();
+const timetemp = projectName;
 const distName = `${projectType}_template_${timetemp}`;
 const URL = 'https://github.com/2o3t/2o3t-Templates.git';
 shell.exec(`git clone -b master --depth 1 ${URL} ${distName} --progress`);
@@ -57,6 +57,7 @@ const paths = [
     'package.json', // 修改 package.json 需要小写
     './public/index.html', // public/index.html
     './README.MD', // README.MD
+    './src/App.vue', // logo
 ];
 
 paths.forEach(p => {
