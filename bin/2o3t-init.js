@@ -80,4 +80,6 @@ console.info(chalk.yellow(`\n\ncd ${LIB_NAME} && yarn\n\n`));
 
 if (projectType === 'library') {
     console.info(chalk.yellow('\nnpm run build:libs\n\n'));
+} else if (projectType === 'app') {
+    console.info(chalk.yellow('\nnpm run serve\n\n'));
 }
