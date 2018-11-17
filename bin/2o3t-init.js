@@ -58,6 +58,7 @@ const paths = [
     './public/index.html', // public/index.html
     './README.MD', // README.MD
     './src/App.vue', // logo
+    'vue.config.js', // config
 ];
 
 paths.forEach(p => {
