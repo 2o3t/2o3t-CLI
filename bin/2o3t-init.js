@@ -59,6 +59,7 @@ const paths = [
     './README.MD', // README.MD
     './src/App.vue', // logo
     'vue.config.js', // config
+    './bin/buildLibsByWebpack.sh', // bin
 ];
 
 paths.forEach(p => {
