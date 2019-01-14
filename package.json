@@ -14,11 +14,11 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "chalk": "^2.4.1",
+        "chalk": "^2.4.2",
         "commander": "^2.19.0",
         "shelljs": "^0.8.3"
     },
     "devDependencies": {
-        "eslint-config-2o3t": "^1.1.1"
+        "eslint-config-2o3t": "^1.1.4"
     }
 }
