@@ -20,7 +20,7 @@ program
 const projectType = program.args[0];
 const projectName = program.args[1] || 'my-project';
 
-if (!projectType) {
+if (!projectType || projectType === 'src') {
     console.error(chalk.red('[ERROR] Unknown project type!'));
     process.exit(1);
 }
@@ -84,4 +84,6 @@ if (projectType === 'library') {
     console.info(chalk.yellow('\nnpm run build:libs\n\n'));
 } else if (projectType === 'app') {
     console.info(chalk.yellow('\nnpm run serve\n\n'));
+} else {
+    console.info(chalk.yellow('\nnpm run dev\n\n'));
 }
