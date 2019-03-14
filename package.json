@@ -2,6 +2,11 @@
     "name": "2o3t-cli",
     "version": "0.0.13",
     "description": " CLI for 2O3T Projects including Web Application, UI Library, Server and etc.",
+    "keywords": [
+        "zyao89",
+        "2o3t",
+        "cli"
+    ],
     "bin": {
         "2o3t": "bin/2o3t.js"
     },
